@@ -4,7 +4,7 @@ const Main = () => {
   return (
     <>
       <Navbar />
-      <div className=" bg-gray-50 mt-[60px] py-13">
+      <div className=" bg-gray-50 mt-15 py-13">
         <div className="max-w-257.25 mx-auto flex flex-col items-center">
           <div className="w-[550px] text-center">
             <h1 className="text-[40px] tracking-wide font-bold">
