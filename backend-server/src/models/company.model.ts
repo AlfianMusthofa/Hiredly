@@ -6,8 +6,10 @@ export class Company extends Model {
   declare uuid: string;
   declare name: string;
   declare location: string;
+  declare office_address: string;
   declare category: string;
   declare about: string;
+  declare total_employees: string;
   declare image: string;
   declare slug: string;
 }
@@ -33,6 +35,10 @@ Company.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    office_address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     category: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -40,6 +46,10 @@ Company.init(
     about: {
       type: DataTypes.TEXT,
       allowNull: true,
+    },
+    total_employees: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     image: {
       type: DataTypes.STRING,

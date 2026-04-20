@@ -17,6 +17,7 @@ export class Job extends Model {
     | "Freelance";
   declare work_arrangement: "Onsite" | "Hybrid" | "Remote";
   declare slug: string;
+  declare status: "Open" | "Closed";
   declare userId: number;
   declare companyId: number;
   declare categoryId: number;
@@ -71,6 +72,10 @@ Job.init(
     },
     slug: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    status: {
+      type: DataTypes.ENUM("Open", "Closed"),
       allowNull: false,
     },
     userId: {

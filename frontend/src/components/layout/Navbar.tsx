@@ -9,12 +9,11 @@ const Navbar = () => {
             <img src={Logo} alt="" className="w-22.5" />
           </a>
           <div className="flex items-center gap-6">
-            <a href="/">Home</a>
+            <a href="/companies">Companies</a>
             <a href="/">Find Jobs</a>
-            <a href="/">Home</a>
+            <a href="/">Course</a>
             <a href="/">Contact</a>
             <a href="/">Blog</a>
-            <a href="/">About</a>
           </div>
           <div className="text-[13px]">
             <a href="/">Login</a>
