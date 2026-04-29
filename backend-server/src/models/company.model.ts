@@ -29,15 +29,15 @@ Company.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     office_address: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     category: {
       type: DataTypes.STRING,
@@ -49,7 +49,7 @@ Company.init(
     },
     total_employees: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image: {
       type: DataTypes.STRING,

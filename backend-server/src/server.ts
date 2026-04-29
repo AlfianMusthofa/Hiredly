@@ -6,7 +6,7 @@ import "./models/associations";
 (async () => {
   try {
     await connectDb();
-    await sequelize.sync();
+    await sequelize.sync({ alter: true });
     console.log("Server running...");
   } catch (error) {
     console.error("Startup error:", error);

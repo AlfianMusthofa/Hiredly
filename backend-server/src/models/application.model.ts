@@ -6,7 +6,18 @@ export class Application extends Model {
   declare uuid: string;
   declare userId: number;
   declare jobId: number;
-  declare status: "applied" | "reviewed" | "rejected" | "accepted";
+  declare status:
+    | "submitted"
+    | "screening"
+    | "interview_hr"
+    | "interview_user"
+    | "offering"
+    | "hired"
+    | "rejected";
+  declare applied_at: Date;
+  declare interview_type: "online" | "offline";
+  declare interview_location: string;
+  declare interview_date: Date;
   declare cover_letter: string;
 }
 
@@ -33,9 +44,33 @@ Application.init(
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM("applied", "reviewed", "rejected", "accepted"),
-      defaultValue: "applied",
+      type: DataTypes.ENUM(
+        "submitted",
+        "screening",
+        "interview_hr",
+        "interview_user",
+        "offering",
+        "hired",
+        "rejected",
+      ),
+      defaultValue: "submitted",
       allowNull: false,
+    },
+    applied_at: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+    interview_type: {
+      type: DataTypes.ENUM("online", "offline"),
+      allowNull: true,
+    },
+    interview_location: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    interview_date: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
     cover_letter: {
       type: DataTypes.TEXT,

@@ -7,6 +7,7 @@ interface ExperienceProp {
   startDate: Date;
   endDate?: Date;
   job_description: string;
+  location: string;
 }
 
 interface EducationProp {
@@ -35,9 +36,14 @@ export class User extends Model {
   declare username: string;
   declare email: string;
   declare password: string;
+  declare phone: string;
+  declare position: string;
   declare image?: string;
   declare bio: string;
-  declare experience: ExperienceProp[];
+  declare age: number;
+  declare sex: "male" | "female";
+  declare job_experience: ExperienceProp[];
+  declare total_years_experience: string;
   declare education: EducationProp[];
   declare skills: SkillProp[];
   declare documents: DocumentProp[];
@@ -71,6 +77,14 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    position: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     image: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -79,8 +93,20 @@ User.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    experience: {
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    sex: {
+      type: DataTypes.ENUM("male", "female"),
+      allowNull: true,
+    },
+    job_experience: {
       type: DataTypes.JSON,
+      allowNull: true,
+    },
+    total_years_experience: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     education: {

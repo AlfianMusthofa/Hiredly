@@ -6,9 +6,11 @@ export const register = async (c: Context) => {
   const email = body.email;
   const username = body.username;
   const password = body.password;
+  const role = body.role;
+  const companyName = body.companyName;
 
   try {
-    await RegisterService(username, email, password);
+    await RegisterService(username, email, password, role, companyName);
     return c.json({ message: "Account created" }, 201);
   } catch (error) {
     console.log(error);

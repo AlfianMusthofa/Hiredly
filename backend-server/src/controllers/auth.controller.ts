@@ -1,6 +1,6 @@
 import type { Context } from "hono";
 import { User } from "../models/user.model";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { signRefreshToken, signToken, verifyRefreshToken } from "../utils/jwt";
 import crypto from "crypto";
 import { RefreshToken } from "../models/refreshToken.model";
@@ -56,7 +56,7 @@ export const login = async (c: Context) => {
       image: user.image,
       bio: user.bio,
       location: user.location,
-      experience: user.experience,
+      experience: user.job_experience,
       education: user.education,
       skills: user.skills,
       documents: user.documents,
@@ -142,7 +142,7 @@ export const me = async (c: Context) => {
       "image",
       "bio",
       "location",
-      "experience",
+      "job_experience",
       "education",
       "skills",
       "documents",

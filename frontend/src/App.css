@@ -4,4 +4,17 @@
 
 * {
   font-family: "Inter";
+  overflow-x: hidden;
+}
+
+.background {
+  background-image: url("./assets/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.background-profile {
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
 }

@@ -16,8 +16,10 @@ export class Job extends Model {
     | "Internship"
     | "Freelance";
   declare work_arrangement: "Onsite" | "Hybrid" | "Remote";
+  declare status: "pending" | "active" | "rejected" | "closed" | "archived";
   declare slug: string;
-  declare status: "Open" | "Closed";
+  declare views: number;
+  declare rejection_reason: string;
   declare userId: number;
   declare companyId: number;
   declare categoryId: number;
@@ -70,13 +72,28 @@ Job.init(
       type: DataTypes.ENUM("Onsite", "Hybrid", "Remote"),
       allowNull: false,
     },
+    status: {
+      type: DataTypes.ENUM(
+        "pending",
+        "active",
+        "rejected",
+        "closed",
+        "archived",
+      ),
+      allowNull: false,
+      defaultValue: "pending",
+    },
     slug: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    status: {
-      type: DataTypes.ENUM("Open", "Closed"),
-      allowNull: false,
+    views: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    rejection_reason: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
     userId: {
       type: DataTypes.INTEGER,
